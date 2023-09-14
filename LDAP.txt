@@ -4,7 +4,7 @@
 
 SRV01='srv-lin1-01'
 DOMAIN='lin1.local'
-
+OU='lin1'
  
 
 # En production le les identifiants ne serait pas configurer comme ceci ! 
