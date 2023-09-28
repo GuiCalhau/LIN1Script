@@ -51,38 +51,6 @@ URI     ldap://$SRV01.$DOMAIN
 
 EOM
 
- 
-
-######################################################################################
-# Update Password admin
-
- 
-
-# LDAP Server information
-LDAP_SERVER="ldap://"$SRV01.$DOMAIN
-
- 
-
-# Generate LDIF file for modifying the root password
-LDIF_FILE="modify_root_password.ldif"
-
- 
-
-echo "dn: ${LdapAdminCNString}
-changetype: modify
-replace: userPassword
-userPassword: ${LDAPPWD}" > $LDIF_FILE
-
- 
-
-# Modify the root password using the LDIF file
-ldapmodify -x -H "$LDAP_SERVER" -D "$LdapAdminCNString" -w "$LDAPPWD" -f $LDIF_FILE
-
- 
-
-# Clean up the LDIF file
-rm $LDIF_FILE
-
 ######################################################################################
 
 mkdir /etc/ldap/content
